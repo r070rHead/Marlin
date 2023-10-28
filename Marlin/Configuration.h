@@ -663,13 +663,13 @@
   #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify up to one value per hotend here, according to your setup.
     // If there are fewer values, the last one applies to the remaining hotends.
-    #define DEFAULT_Kp_LIST {  21.73,  21.73 }
-    #define DEFAULT_Ki_LIST {   1.54,   1.54 }
-    #define DEFAULT_Kd_LIST {  76.55,  76.55 }
+    #define DEFAULT_Kp_LIST {   28.4,  28.4  } // KBY - Default: {  21.73,  21.73 }
+    #define DEFAULT_Ki_LIST {   2.76,   2.76 } // KBY - Default: {   1.54,   1.54 }
+    #define DEFAULT_Kd_LIST {  73.11,  73.11 } // KBY - Default: {  76.55,  76.55 }
   #else
-    #define DEFAULT_Kp  27.31  // KBY - Default: 21.73
-    #define DEFAULT_Ki   2.69  // KBY - Default:  1.54
-    #define DEFAULT_Kd  69.22  // KBY - Default: 76.55
+    #define DEFAULT_Kp   28.4  // KBY - Default: 21.73
+    #define DEFAULT_Ki   2.76  // KBY - Default:  1.54
+    #define DEFAULT_Kd  73.11  // KBY - Default: 76.55
   #endif
 #endif
 
@@ -752,9 +752,9 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 146.48 // KBY - Default: 10.00
-  #define DEFAULT_bedKi  29.27 // KBY - Default: .023
-  #define DEFAULT_bedKd 488.76 // KBY - Default: 305.4
+  #define DEFAULT_bedKp 165.66 // KBY - Default: 10.00
+  #define DEFAULT_bedKi   33.1 // KBY - Default: .023
+  #define DEFAULT_bedKd 552.74 // KBY - Default: 305.4
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -1168,14 +1168,14 @@
  * Override with M92
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 413.83 }  // KBY - Ender 3 Default: { 80, 80, 400, 93 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 428.84 }  // KBY - Ender 3 Default: { 80, 80, 400, 93 }
 
 /**
  * Default Max Feed Rate (linear=mm/s, rotational=°/s)
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K...]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 500, 500, 5, 25 } // KBY - Ender 3 Default: {500, 500, 5, 25}
+#define DEFAULT_MAX_FEEDRATE          { 500, 500, 10, 25 } // KBY - Ender 3 Default: {500, 500, 5, 25}
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1483,7 +1483,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -55, -18.5, -1.38 }    // Z was set to -1.33
+#define NOZZLE_TO_PROBE_OFFSET { -55, -18.5, -4.2 }    // KBY - Default: -1.33
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1701,10 +1701,8 @@
 #define X_MIN_POS -1
 #define Y_MIN_POS -7
 #define Z_MIN_POS 0
-//#define X_MAX_POS X_BED_SIZE
-#define X_MAX_POS 250
-//#define Y_MAX_POS Y_BED_SIZE
-#define Y_MAX_POS 233
+#define X_MAX_POS 250 // KBY - Default: #define X_MAX_POS X_BED_SIZE
+#define Y_MAX_POS 233 // KBY - Default: #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 250
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
@@ -1939,7 +1937,7 @@
   /**
    * Enable the G26 Mesh Validation Pattern tool.
    */
-  #define G26_MESH_VALIDATION
+  //#define G26_MESH_VALIDATION // KBY - Default: Enabled
   #if ENABLED(G26_MESH_VALIDATION)
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for G26.
@@ -2229,6 +2227,13 @@
 #define PREHEAT_2_TEMP_BED     70
 #define PREHEAT_2_TEMP_CHAMBER 35
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
+
+#define PREHEAT_3_LABEL      "PETG"                      // KBY
+#define PREHEAT_3_TEMP_HOTEND 245                        // KBY
+#define PREHEAT_3_TEMP_BED     80                        // KBY
+#define PREHEAT_3_TEMP_CHAMBER 35                        // KBY
+#define PREHEAT_3_FAN_SPEED     0 // Value from 0 to 255 // KBY
+
 
 // @section motion
 
