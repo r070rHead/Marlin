@@ -135,7 +135,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Yeatesclan Ender3"
+#define CUSTOM_MACHINE_NAME "Yeatesclan Ender-3"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -1483,7 +1483,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -55, -18.5, -4.2 }    // KBY - Default: -1.33
+#define NOZZLE_TO_PROBE_OFFSET { -55, -18.5, -3.525 }    // KBY - Default: -1.33
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1701,9 +1701,9 @@
 #define X_MIN_POS -1
 #define Y_MIN_POS -7
 #define Z_MIN_POS 0
-#define X_MAX_POS 250 // KBY - Default: #define X_MAX_POS X_BED_SIZE
-#define Y_MAX_POS 233 // KBY - Default: #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 250
+#define X_MAX_POS 256 // KBY - Default: #define X_MAX_POS X_BED_SIZE
+#define Y_MAX_POS 235 // KBY - Default: #define Y_MAX_POS Y_BED_SIZE
+#define Z_MAX_POS 251 // KBY - Default: 250
 //#define I_MIN_POS 0
 //#define I_MAX_POS 50
 //#define J_MIN_POS 0
@@ -1931,8 +1931,8 @@
    * split up moves into short segments like a Delta. This follows the
    * contours of the bed more closely than edge-to-edge straight moves.
    */
-  #define SEGMENT_LEVELED_MOVES
-  #define LEVELED_SEGMENT_LENGTH 5.0 // (mm) Length of all segments (except the last one)
+  #define SEGMENT_LEVELED_MOVES // KBY ?
+  #define LEVELED_SEGMENT_LENGTH 5.0 // (mm) Length of all segments (except the last one) // KBY ?
 
   /**
    * Enable the G26 Mesh Validation Pattern tool.
